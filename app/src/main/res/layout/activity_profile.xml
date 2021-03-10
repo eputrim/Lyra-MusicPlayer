@@ -19,7 +19,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_overlay_piano"
+        android:background="@drawable/bg_overlay_brown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +87,7 @@
             android:fontFamily="@font/r_montserrat"
             android:text="00000030665"
             android:textColor="#FFF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
             android:fontFamily="@font/m_montserrat"
             android:text="Erika Putrim"
             android:textColor="#FFF"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
             android:fontFamily="@font/r_montserrat"
             android:text="FL"
             android:textColor="#FFF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
@@ -134,7 +134,7 @@
             android:fontFamily="@font/m_montserrat"
             android:text="Referensi:"
             android:textColor="#FFF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -152,7 +152,7 @@
                     android:fontFamily="@font/l_montserrat"
                     android:text="Youtube"
                     android:textColor="#FFF"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -166,7 +166,7 @@
                     android:fontFamily="@font/l_montserrat"
                     android:text=": http blablabla"
                     android:textColor="#FFF"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -186,7 +186,7 @@
                     android:fontFamily="@font/l_montserrat"
                     android:text="Website"
                     android:textColor="#FFF"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -200,7 +200,7 @@
                     android:fontFamily="@font/l_montserrat"
                     android:text=": http blablabla"
                     android:textColor="#FFF"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -220,7 +220,7 @@
                     android:fontFamily="@font/l_montserrat"
                     android:text="Teman"
                     android:textColor="#FFF"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -234,7 +234,7 @@
                     android:fontFamily="@font/l_montserrat"
                     android:text=": -"
                     android:textColor="#FFF"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
