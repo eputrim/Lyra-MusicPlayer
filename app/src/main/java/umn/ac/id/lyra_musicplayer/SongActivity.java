@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 
@@ -24,11 +25,12 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.io.File;
 import java.util.ArrayList;
 
-public class SongActivity extends AppCompatActivity /*implements PopupMenu.OnMenuItemClickListener*/ {
+public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
+    ImageView menu;
     ListView song;
     String[] items;
-    //Dialog popupmenu;
+    Dialog popupmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +38,22 @@ public class SongActivity extends AppCompatActivity /*implements PopupMenu.OnMen
         setContentView(R.layout.activity_song);
 
         song = findViewById(R.id.song);
+        menu = (ImageView) findViewById(R.id.menu);
 
         runtimePermission();
 
-        /*popupmenu = new Dialog(this);
+        popupmenu = new Dialog(this);
         popupmenu.setContentView(R.layout.popup);
-        popupmenu.show();*/
+        popupmenu.show();
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                optionMenu(v);
+            }
+        });
     }
-/*
+
     public void optionMenu(View v){
         PopupMenu optionmenu = new PopupMenu(this, v);
         optionmenu.setOnMenuItemClickListener(this);
@@ -67,9 +77,9 @@ public class SongActivity extends AppCompatActivity /*implements PopupMenu.OnMen
                 return false;
         }
     }
-*/
+
     public void runtimePermission(){
-        Dexter.withActivity(this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
+        Dexter.withContext(this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
             @Override
             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                 displaySong();
@@ -118,15 +128,13 @@ public class SongActivity extends AppCompatActivity /*implements PopupMenu.OnMen
         song.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String title = song.getItemAtPosition(position).toString();
+                String songtitle = song.getItemAtPosition(position).toString();
 
-                startActivity(new Intent(getApplicationContext(),SongActivity.class).putExtra("position",position).putExtra("songs",listSongs).putExtra("title",title));
-                /*
                 Intent startSong = new Intent(SongActivity.this, PlayingActivity.class);
                 startSong.putExtra("songs", listSongs);
-                startSong.putExtra("title", title);
+                startSong.putExtra("title", songtitle);
                 startSong.putExtra("position", position);
-                startActivity(startSong);*/
+                startActivity(startSong);
             }
         });
     }

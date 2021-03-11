@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Password is required!", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        if (susername.equals("uasmobile") && spassword.equals("uasmobilegenap")) {
+                        if (susername.equals("utsmobile") && spassword.equals("utsmobilegenap")) {
                             Intent ilogin = new Intent(LoginActivity.this, SongActivity.class);
                             startActivity(ilogin);
                         }

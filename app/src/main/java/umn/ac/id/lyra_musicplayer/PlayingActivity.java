@@ -35,11 +35,12 @@ public class PlayingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
 
-        playpause = findViewById(R.id.playpause);
-        previous = findViewById(R.id.previous);
-        next = findViewById(R.id.next);
+        playpause = (ImageView) findViewById(R.id.playpause);
+        previous = (ImageView) findViewById(R.id.previous);
+        next = (ImageView) findViewById(R.id.next);
         title = findViewById(R.id.title);
         seekbar = findViewById(R.id.seekbar);
+        back = (ImageView) findViewById(R.id.back);
 
         updateseekbar = new Thread(){
             @Override
@@ -130,12 +131,12 @@ public class PlayingActivity extends AppCompatActivity {
                 stitle = songs.get(position).getName().toString();
                 title.setText(stitle);
 
-                mediaPlayer.start();
-
                 try{
                     mediaPlayer.start();
                 }
-                catch(Exception e){}
+                catch(Exception e){
+                    startActivity(new Intent(getApplicationContext(), SongActivity.class));
+                }
             }
         });
 
@@ -151,8 +152,13 @@ public class PlayingActivity extends AppCompatActivity {
 
                 stitle = songs.get(position).getName().toString();
                 title.setText(stitle);
-                mediaPlayer.start();
 
+                try{
+                    mediaPlayer.start();
+                }
+                catch(Exception e){
+                    startActivity(new Intent(getApplicationContext(), SongActivity.class));
+                }
             }
         });
 

@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="30dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
         android:orientation="vertical">
 
         <TextView
@@ -18,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="Welcome!"
-            android:textSize="50sp"
+            android:textSize="40sp"
             android:fontFamily="@font/b_dancingscript"
             android:textColor="#FFF"/>
 
@@ -26,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Erika Putrim"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:fontFamily="@font/m_montserrat"
             android:textColor="#FFF"/>
 
@@ -34,19 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00000030665"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:fontFamily="@font/r_montserrat"
             android:textColor="#FFF"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="OK"
-            android:textSize="20sp"
-            android:textColor="@color/lightbrown"
-            android:background="@drawable/bg_white"/>
     </LinearLayout>
 
 </RelativeLayout>
