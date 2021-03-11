@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/l_montserrat"
-                    android:text=": http blablabla"
+                    android:text=": https://www.youtube.com/watch?v=8rnFZdQbYY8&amp;t=0s"
                     android:textColor="#FFF"
                     android:textSize="18sp" />
             </LinearLayout>

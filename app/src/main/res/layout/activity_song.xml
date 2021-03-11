@@ -84,59 +84,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
+                <ListView
+                    android:id="@+id/song"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="20dp"
-                    android:text="asdadsad"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/r_montserrat"
-                    android:textColor="#FFF"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="asdadsad"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/r_montserrat"
-                    android:textColor="#FFF"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="asdadsad"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/r_montserrat"
-                    android:textColor="#FFF"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="asdadsad"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/r_montserrat"
-                    android:textColor="#FFF"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="asdadsad"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/r_montserrat"
-                    android:textColor="#FFF"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="asdadsad"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/r_montserrat"
-                    android:textColor="#FFF"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="asdadsad"
                     android:textSize="20sp"
                     android:fontFamily="@font/r_montserrat"
                     android:textColor="#FFF"/>
