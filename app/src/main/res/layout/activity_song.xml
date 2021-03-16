@@ -65,29 +65,22 @@
         android:layout_width="match_parent"
         android:layout_height="520dp"
         android:background="@drawable/bg_btn_white"
-        android:layout_margin="30dp"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"
+        android:layout_margin="20dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2">
 
-
         <LinearLayout
-            android:id="@+id/activity_tune"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <ListView
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/song"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/song" />
+                android:layout_height="match_parent"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -1,6 +1,8 @@
 package umn.ac.id.lyra_musicplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -24,20 +26,27 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     ImageView menu;
-    ListView song;
+    //ListView song;
+    RecyclerView song;
     String[] items;
     Dialog popupmenu;
+
+    private final LinkedList<String> songList = new LinkedList<>();
+    private RecyclerView mRecyclerView;
+    private SongListAdapter songAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
 
-        song = findViewById(R.id.song);
+        //song = findViewById(R.id.song);
+        mRecyclerView = (RecyclerView) findViewById(R.id.song);
         menu = (ImageView) findViewById(R.id.menu);
 
         runtimePermission();
@@ -119,12 +128,18 @@ public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         items = new String[ listSongs.size() ];
 
         for(int i=0; i<listSongs.size(); i++){
-            items[i] = listSongs.get(i).getName().toString();
+            songList.add(listSongs.get(i).getName().toString());
+            //items[i] = listSongs.get(i).getName().toString();
         }
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 
-        song.setAdapter(myAdapter);
+        songAdapter = new SongListAdapter(this, songList);
+        mRecyclerView.setAdapter(songAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+
+        //song.setAdapter(myAdapter);
+        /*
         song.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -137,5 +152,7 @@ public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 startActivity(startSong);
             }
         });
+
+         */
     }
 }
