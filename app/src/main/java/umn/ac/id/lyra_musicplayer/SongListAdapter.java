@@ -10,16 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongViewHolder> {
 
     private final LinkedList<String> songList;
     private LayoutInflater mInflater;
+    private final ArrayList<File> arraySongList;
+    String mCurrent;
 
-    SongListAdapter(Context context, LinkedList<String> songs){
+    SongListAdapter(Context context, LinkedList<String> songs, ArrayList<File> listSongs){
         mInflater = LayoutInflater.from(context);
         songList = songs;
+        arraySongList = listSongs;
     }
 
     @NonNull
@@ -31,7 +36,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
 
     @Override
     public void onBindViewHolder(@NonNull SongListAdapter.SongViewHolder holder, int position) {
-        String mCurrent = songList.get(position);
+        mCurrent = songList.get(position);
         holder.song.setText(mCurrent);
     }
 
@@ -40,7 +45,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
         return songList.size();
     }
 
-    class SongViewHolder extends RecyclerView.ViewHolder{
+    class SongViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final TextView song;
         final SongListAdapter songAdapter;
 
@@ -48,7 +53,19 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
             super(itemView);
             song = itemView.findViewById(R.id.song);
             this.songAdapter = songAdapter;
+            itemView.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View v){
+            int songPosition = getLayoutPosition();
+            String element = songList.get(songPosition);
+
+            Intent startSong = new Intent(v.getContext(), PlayingActivity.class);
+            startSong.putExtra("songs", arraySongList);
+            startSong.putExtra("title", element);
+            startSong.putExtra("position", songPosition);
+            v.getContext().startActivity(startSong);
+        }
     }
 }

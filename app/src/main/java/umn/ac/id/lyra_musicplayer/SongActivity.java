@@ -31,7 +31,6 @@ import java.util.LinkedList;
 public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     ImageView menu;
-    //ListView song;
     RecyclerView song;
     String[] items;
     Dialog popupmenu;
@@ -40,12 +39,13 @@ public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private RecyclerView mRecyclerView;
     private SongListAdapter songAdapter;
 
+    public ArrayList<File> listSongs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
 
-        //song = findViewById(R.id.song);
         mRecyclerView = (RecyclerView) findViewById(R.id.song);
         menu = (ImageView) findViewById(R.id.menu);
 
@@ -124,35 +124,15 @@ public class SongActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     void displaySong(){
-        final ArrayList<File> listSongs = findSong(Environment.getExternalStorageDirectory());
+        listSongs = findSong(Environment.getExternalStorageDirectory());
         items = new String[ listSongs.size() ];
 
         for(int i=0; i<listSongs.size(); i++){
             songList.add(listSongs.get(i).getName().toString());
-            //items[i] = listSongs.get(i).getName().toString();
         }
 
-        songAdapter = new SongListAdapter(this, songList);
+        songAdapter = new SongListAdapter(this, songList, listSongs);
         mRecyclerView.setAdapter(songAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        //ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-
-        //song.setAdapter(myAdapter);
-        /*
-        song.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String songtitle = song.getItemAtPosition(position).toString();
-
-                Intent startSong = new Intent(SongActivity.this, PlayingActivity.class);
-                startSong.putExtra("songs", listSongs);
-                startSong.putExtra("title", songtitle);
-                startSong.putExtra("position", position);
-                startActivity(startSong);
-            }
-        });
-
-         */
     }
 }

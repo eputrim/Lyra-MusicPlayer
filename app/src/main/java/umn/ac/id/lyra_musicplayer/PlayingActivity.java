@@ -68,7 +68,7 @@ public class PlayingActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        songs = (ArrayList) bundle.getParcelableArrayList("songs");
+        songs = (ArrayList) i.getSerializableExtra("songs");
         stitle = songs.get(position).getName().toString();
 
         title.setText(i.getStringExtra("title"));
@@ -105,8 +105,6 @@ public class PlayingActivity extends AppCompatActivity {
         playpause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                seekbar.setMax(mediaPlayer.getDuration());
-
                 if(mediaPlayer.isPlaying()){
                     playpause.setImageResource(R.drawable.ic_play);
                     mediaPlayer.pause();
@@ -131,6 +129,15 @@ public class PlayingActivity extends AppCompatActivity {
                 stitle = songs.get(position).getName().toString();
                 title.setText(stitle);
 
+                if(position == songs.size()){
+                    next.animate().translationY(0).alpha(0).setDuration(350).start();
+                    next.setEnabled(false);
+                }
+                else {
+                    next.animate().translationY(0).alpha(1).setDuration(350).start();
+                    next.setEnabled(true);
+                }
+
                 try{
                     mediaPlayer.start();
                 }
@@ -152,6 +159,15 @@ public class PlayingActivity extends AppCompatActivity {
 
                 stitle = songs.get(position).getName().toString();
                 title.setText(stitle);
+
+                if(position == 0){
+                    previous.animate().translationY(0).alpha(0).setDuration(350).start();
+                    previous.setEnabled(false);
+                }
+                else {
+                    previous.animate().translationY(0).alpha(1).setDuration(350).start();
+                    previous.setEnabled(true);
+                }
 
                 try{
                     mediaPlayer.start();
